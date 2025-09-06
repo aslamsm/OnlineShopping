@@ -10,7 +10,7 @@ const Slider = () => {
     const carouselElement = document.getElementById("carouselExampleFade");
     if (carouselElement) {
       const carousel = new Carousel(carouselElement, {
-        interval: 5000,
+        interval: 3000,
         ride: "carousel",
       });
       carousel.cycle(); // Start cycling immediately
