@@ -1,11 +1,11 @@
 import React from "react";
 import { ProductItem } from "./ProductItem";
-import HP from "../assets/HP.jpg";
-import Dell from "../assets/Dell.jpg";
-import Lenevo from "../assets/lenevo.jpg";
-import Asus from "../assets/asus.jpg";
-import Acer from "../assets/acer.jpg";
-import Toshiba from "../assets/toshiba.jpg";
+import HP from "/src/assets/hp.jpg";
+import Dell from "/src/assets/dell.jpg";
+import Lenevo from "/src/assets/lenevo.jpg";
+import Asus from "/src/assets/asus.jpg";
+import Acer from "/src/assets/acer.jpg";
+import Toshiba from "/src/assets/toshiba.jpg";
 
 const products = [
   {

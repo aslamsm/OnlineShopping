@@ -5,8 +5,8 @@ import { Cart } from "./components/Cart";
 import OrderPlaced from "./components/OrderPlaced";
 import AddressForm from "./components/AddressForm";
 import { useCart } from "./components/CartContext";
-import logocart from "/src/assets/logocart.jpg";
-import shopcart from "/src/assets/shopcart.jpg";
+import logocart from "/logocart.jpg";
+import shopcart from "/shopcart.jpg";
 
 import {
   BrowserRouter as Router,
