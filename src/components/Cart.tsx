@@ -1,8 +1,8 @@
-// src/components/Cart.tsx
 import React from "react";
 import { useCart } from "./CartContext";
 import { useNavigate } from "react-router-dom";
 import emptycart from "/src/assets/emptycart.png";
+import "./Cart.css"; // Add custom styles here
 
 export const Cart: React.FC = () => {
   const { cart, plusQuantity, minusQuantity } = useCart();
@@ -11,14 +11,14 @@ export const Cart: React.FC = () => {
 
   if (cart.length === 0)
     return (
-      <div className="container mt-5 d-flex text-border justify-content-center">
-        <div className="empty-cart-alert shadow-sm border border-danger p-4 rounded text-center bg-light">
+      <div className="container mt-5 d-flex justify-content-center">
+        <div className="empty-cart-alert shadow-sm border border-danger p-4 rounded text-center bg-light w-100 max-w-500">
           <img
-            src={emptycart} // public folder
+            src={emptycart}
             alt="Empty Cart"
-            style={{ width: "50px", marginBottom: "5px" }}
+            className="img-fluid mb-3"
+            style={{ maxWidth: "80px" }}
           />
-
           <h5 className="mb-2 text-danger">Your cart is empty!</h5>
           <p className="mb-0 text-secondary">
             Looks like you haven’t added anything yet.
@@ -28,98 +28,83 @@ export const Cart: React.FC = () => {
     );
 
   return (
-    <div className="container">
-      <h5 className="text-primary text-center my-3">My Cart</h5>
+    <div className="container py-3">
+      <h5 className="text-primary text-center mb-4">My Cart</h5>
 
       <div className="table-responsive">
-        <table className="table table-bordered table-striped table-sm">
-          <thead className="table">
+        <table className="table table-bordered table-hover align-middle">
+          <thead className="table-info">
             <tr>
-              <th className="ps-3 bg-info text-light">Item</th>
-              <th className="text-center bg-info text-light">Image</th>
-              <th className="text-center bg-info text-light">Price</th>
-              <th className="text-center bg-info text-light">Quantity</th>
-              <th className="text-end bg-info text-light">Price</th>
+              <th>Item</th>
+              <th className="text-center">Image</th>
+              <th className="text-center">Price</th>
+              <th className="text-center">Quantity</th>
+              <th className="text-end">Total</th>
             </tr>
           </thead>
           <tbody>
             {cart.map((item) => (
-              <tr key={item.id} style={{ verticalAlign: "middle" }}>
-                <td className="ps-3">{item.item}</td>
+              <tr key={item.id}>
+                <td>{item.item}</td>
                 <td className="text-center">
                   {item.image ? (
                     <img
                       src={item.image}
-                      style={{
-                        width: "70px",
-                        height: "50px",
-                        objectFit: "fill",
-                      }}
+                      className="img-fluid rounded"
+                      style={{ maxWidth: "70px", height: "auto" }}
+                      alt={item.item}
                     />
                   ) : (
-                    <div
-                      className="d-flex align-items-center justify-content-center bg-light border rounded"
-                      style={{
-                        width: "50px",
-                        height: "50px",
-                        fontSize: "10px",
-                      }}
-                    >
-                      No Image
-                    </div>
+                    <div className="no-image-box">No Image</div>
                   )}
                 </td>
-
-                <td className="text-center">{item.price.toFixed(2)}</td>
+                <td className="text-center">₹{item.price.toFixed(2)}</td>
                 <td className="text-center">
-                  <div className="btn-group" role="group">
+                  <div className="btn-group">
                     <button
                       className="btn btn-outline-secondary btn-sm"
                       onClick={() => minusQuantity(item.id)}
-                      style={{ backgroundColor: "lightyellow" }}
                       disabled={item.quantity === 1}
                     >
                       −
                     </button>
-                    <span className="px-3 align-self-center">
-                      {item.quantity}
-                    </span>
+                    <span className="px-2">{item.quantity}</span>
                     <button
                       className="btn btn-outline-secondary btn-sm"
-                      style={{ backgroundColor: "lightyellow" }}
                       onClick={() => plusQuantity(item.id)}
                     >
                       +
                     </button>
                   </div>
                 </td>
-
-                <td className="text-end" style={{ width: "150px" }}>
-                  ${(item.price * item.quantity).toFixed(2)}
+                <td className="text-end">
+                  ₹{(item.price * item.quantity).toFixed(2)}
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <h5 className="text-end text-success">Total: ${total.toFixed(2)}</h5>
-      <div className="d-flex  gap-2">
+
+      <h5 className="text-end text-success mt-3">Total: ₹{total.toFixed(2)}</h5>
+
+      <div className="d-flex flex-wrap gap-2 mt-4 justify-content-between">
         <button
-          className="btn btn-success btn-md "
+          className="btn btn-success flex-grow-1"
           onClick={() => navigate("/products")}
         >
           Continue Shopping
         </button>
 
         <button
-          className="btn btn-warning  btn-md"
+          className="btn btn-warning flex-grow-1"
           onClick={() => navigate("/address")}
         >
           Proceed to Address
         </button>
 
         <button
-          className="btn btn-primary btn-md fs-5 ms-auto"
+          className="btn btn-primary flex-grow-1"
           onClick={() => navigate("/order")}
         >
           Place the Order
