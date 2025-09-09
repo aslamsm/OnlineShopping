@@ -82,13 +82,15 @@ export const ProductItem: React.FC<Props> = ({
             className="card-text text-muted mb-0 ms-0 fst-italic flex-grow-1"
             title={desc}
             style={{
+              maxWidth: "100%",
               overflow: "hidden",
-              WebkitLineClamp: 3, // this is to limit no of lines in <p> tag.
+              WebkitLineClamp: 4, // this is to limit no of lines in <p> tag.
               WebkitBoxOrient: "vertical",
               fontSize: "0.80rem",
               lineHeight: "1.5",
               margin: 0,
               padding: 0,
+              display: "-webkit-box",
             }}
           >
             {desc}
