@@ -22,14 +22,13 @@ const NavbarWithCart = () => {
 
   return (
     <nav
-      className="navbar px-4 py-0"
+      className="navbar navbar-expand-lg px-3"
       style={{
         backgroundColor: "#232F3E",
         color: "#FFFFFF",
         fontFamily: "Roboto, sans-serif",
         fontSize: "0.85rem",
         boxShadow: "0 2px 4px rgba(235, 250, 24, 0.97)",
-        height: "45px",
       }}
     >
       <Link
@@ -46,54 +45,73 @@ const NavbarWithCart = () => {
         </span>
       </Link>
 
-      <div className="navbar-nav ms-4 d-flex flex-row gap-3">
-        <Link className="nav-link text-white" to="/home">
-          Home
-        </Link>
+      {/* Toggle button for mobile */}
+      <button
+        className="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarContent"
+        aria-controls="navbarContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span
+          className="navbar-toggler-icon"
+          style={{ filter: "invert(1)" }}
+        ></span>
+      </button>
 
-        <Link className="nav-link text-white" to="/products">
-          Products
-        </Link>
-        <Link className="nav-link text-white" to="/cart">
-          Cart
-        </Link>
-        <Link className="nav-link text-white" to="/order">
-          Order
-        </Link>
-        <Link className="nav-link text-white" to="/address">
-          Address
-        </Link>
-      </div>
+      <div className="collapse navbar-collapse" id="navbarContent">
+        {/* Navigation Links */}
+        <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row flex-lg-row gap-3">
+          <li className="nav-item">
+            <Link className="nav-link text-white" to="/home">
+              Home
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link text-white" to="/products">
+              Products
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link text-white" to="/cart">
+              Cart
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link text-white" to="/order">
+              Order
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link text-white" to="/address">
+              Address
+            </Link>
+          </li>
+        </ul>
 
-      <div className="ms-auto me-3 d-flex align-items-center">
-        <input
-          type="text"
-          placeholder="Search products..."
-          style={{
-            padding: "6px 12px",
-            borderRadius: "4px",
-            border: "none",
-            fontSize: "0.7rem",
-            width: "250px",
-            height: "25px",
-          }}
-        />
-        <button
-          style={{
-            marginLeft: "8px",
-            padding: "4px 10px",
-            backgroundColor: "#FF9900",
-            border: "none",
-            borderRadius: "4px",
-            color: "#232F3E",
-            fontSize: "0.7rem",
-          }}
+        {/* Search Bar */}
+        <form
+          className="d-flex align-items-center mb-2 mb-lg-0 me-3"
+          role="search"
         >
-          Search
-        </button>
-      </div>
+          <input
+            type="search"
+            placeholder="Search products..."
+            className="form-control form-control-sm"
+            style={{ width: "200px", fontSize: "0.75rem" }}
+          />
+          <button
+            className="btn btn-warning btn-sm ms-2"
+            type="submit"
+            style={{ fontSize: "0.75rem", color: "#232F3E" }}
+          >
+            Search
+          </button>
+        </form>
 
-      <div>
+        {/* Cart Icon */}
         <Link to="/cart" className="text-white text-decoration-none">
           <div className="position-relative d-flex align-items-center">
             <img
@@ -101,10 +119,9 @@ const NavbarWithCart = () => {
               alt="Cart"
               style={{ width: "25px", height: "20px" }}
             />
-
             {getTotalQuantity() > 0 && (
               <span
-                className="position-absulate translate-middle badge rounded-pill bg-warning text-dark"
+                className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark"
                 style={{ fontSize: "0.75rem", fontWeight: "bold" }}
               >
                 {getTotalQuantity()}
