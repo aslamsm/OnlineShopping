@@ -21,16 +21,16 @@ const Slider = () => {
       id="carouselExampleFade"
       className="carousel slide carousel-fade"
       data-bs-ride="carousel"
-      data-bs-interval="5000"
+      data-bs-interval="3000"
     >
       <div className="carousel-inner">
-        <div className="carousel-item active">
+        <div className="carousel-item active" style={{ height: "600px" }}>
           <img src={slider1} className="d-block w-100" alt="First slide" />
         </div>
-        <div className="carousel-item">
+        <div className="carousel-item" style={{ height: "600px" }}>
           <img src={slider2} className="d-block w-100" alt="Second slide" />
         </div>
-        <div className="carousel-item">
+        <div className="carousel-item" style={{ height: "600px" }}>
           <img src={slider3} className="d-block w-100" alt="Third slide" />
         </div>
       </div>
