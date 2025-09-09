@@ -79,7 +79,7 @@ export const ProductItem: React.FC<Props> = ({
             {item}
           </h6>
           <p
-            className="card-text text-muted mb-0 ms-0 fst-italic"
+            className="card-text text-muted mb-0 ms-0 fst-italic flex-grow-1"
             title={desc}
             style={{
               overflow: "hidden",
