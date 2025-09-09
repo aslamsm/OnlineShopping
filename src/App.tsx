@@ -74,7 +74,7 @@ const NavbarWithCart = () => {
       )}
 
       <nav
-        className="navbar navbar-expand-lg px-2 px-md-3 position-relative"
+        className="navbar navbar-expand-lg px-2 px-md-3 position-sticky top-0"
         style={{
           backgroundColor: "#232F3E",
           color: "#FFFFFF",
@@ -259,7 +259,7 @@ const NavbarWithCart = () => {
       {/* Mobile Search Bar */}
       {isSearchExpanded && (
         <div
-          className="d-lg-none position-relative"
+          className="d-lg-none position-sticky top-0"
           style={{
             backgroundColor: "#232F3E",
             borderTop: "1px solid #3a4553",
@@ -298,7 +298,7 @@ const NavbarWithCart = () => {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div
-          className="d-lg-none position-relative"
+          className="d-lg-none position-sticky top-0"
           style={{
             backgroundColor: "#232F3E",
             borderTop: "1px solid #3a4553",
