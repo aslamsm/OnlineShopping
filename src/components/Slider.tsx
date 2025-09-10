@@ -17,15 +17,16 @@ const Slider = () => {
     }
   }, []);
 
+  // Option 1: Full viewport height
   const slideStyle: CSSProperties = {
-    height: "619px",
+    // height: "100vh", // Full viewport height
     overflow: "hidden",
   };
 
   const imageStyle: CSSProperties = {
     width: "100%",
     height: "100%",
-    objectFit: "cover", // This ensures images fill the container while maintaining aspect ratio
+    objectFit: "contain", // This ensures images fill the container while maintaining aspect ratio
     objectPosition: "center", // Centers the image within the container
   };
 
