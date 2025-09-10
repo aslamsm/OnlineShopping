@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, type CSSProperties } from "react";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { Carousel } from "bootstrap"; // Import Carousel directly
 import slider1 from "/src/assets/slider1.jpg";
@@ -16,6 +16,19 @@ const Slider = () => {
       carousel.cycle(); // Start cycling immediately
     }
   }, []);
+
+  const slideStyle: CSSProperties = {
+    height: "619px",
+    overflow: "hidden",
+  };
+
+  const imageStyle: CSSProperties = {
+    width: "100%",
+    height: "100%",
+    objectFit: "cover", // This ensures images fill the container while maintaining aspect ratio
+    objectPosition: "center", // Centers the image within the container
+  };
+
   return (
     <div
       id="carouselExampleFade"
@@ -24,14 +37,29 @@ const Slider = () => {
       data-bs-interval="3000"
     >
       <div className="carousel-inner">
-        <div className="carousel-item active" style={{ height: "600px" }}>
-          <img src={slider1} className="d-block w-100" alt="First slide" />
+        <div className="carousel-item active" style={slideStyle}>
+          <img
+            src={slider1}
+            className="d-block"
+            alt="First slide"
+            style={imageStyle}
+          />
         </div>
-        <div className="carousel-item" style={{ height: "600px" }}>
-          <img src={slider2} className="d-block w-100" alt="Second slide" />
+        <div className="carousel-item" style={slideStyle}>
+          <img
+            src={slider2}
+            className="d-block"
+            alt="Second slide"
+            style={imageStyle}
+          />
         </div>
-        <div className="carousel-item" style={{ height: "600px" }}>
-          <img src={slider3} className="d-block w-100" alt="Third slide" />
+        <div className="carousel-item" style={slideStyle}>
+          <img
+            src={slider3}
+            className="d-block"
+            alt="Third slide"
+            style={imageStyle}
+          />
         </div>
       </div>
 

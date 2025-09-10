@@ -111,21 +111,44 @@ const NavbarWithCart = () => {
             >
               SHANU-Online
             </span>
-            <span
-              className="fw-bold d-sm-none"
-              style={{
-                color: "#f8e40fff",
-                fontSize: "0.8rem",
-              }}
-            >
-              SHANU
-            </span>
           </Link>
 
-          {/* Desktop Search Bar */}
-          <div className="d-none d-lg-flex flex-grow-1 mx-3 align-items-center">
+          {/* Desktop Navigation Links - Left aligned after logo */}
+          <div className="d-none d-md-flex align-items-center gap-4 ms-1">
+            <Link
+              className="nav-link text-white text-decoration-none px-1 py-0 rounded navbar-hover-link"
+              to="/home"
+              style={{ fontSize: "0.9rem" }}
+            >
+              Home
+            </Link>
+            <Link
+              className="nav-link text-white text-decoration-none px-1 py-0 rounded navbar-hover-link"
+              to="/products"
+              style={{ fontSize: "0.9rem" }}
+            >
+              Products
+            </Link>
+            <Link
+              className="nav-link text-white text-decoration-none px-1 py-0 rounded navbar-hover-link"
+              to="/order"
+              style={{ fontSize: "0.9rem" }}
+            >
+              Orders
+            </Link>
+            <Link
+              className="nav-link text-white text-decoration-none px-1 py-0 rounded navbar-hover-link"
+              to="/address"
+              style={{ fontSize: "0.9rem" }}
+            >
+              Address
+            </Link>
+          </div>
+
+          {/* Desktop Search Bar - Increased width */}
+          <div className="d-none d-lg-flex  align-items-center">
             <form
-              className="d-flex w-100"
+              className="d-flex"
               role="search"
               style={{ maxWidth: "600px" }}
             >
@@ -138,6 +161,7 @@ const NavbarWithCart = () => {
                     fontSize: "0.9rem",
                     border: "none",
                     borderRadius: "4px 0 0 4px",
+                    minWidth: "350px",
                   }}
                 />
                 <button
@@ -169,38 +193,6 @@ const NavbarWithCart = () => {
             >
               <i className="fas fa-search"></i>
             </button>
-
-            {/* Desktop Navigation Links */}
-            <div className="d-none d-lg-flex align-items-center gap-4">
-              <Link
-                className="nav-link text-white text-decoration-none px-2 py-1 rounded navbar-hover-link"
-                to="/home"
-                style={{ fontSize: "0.9rem" }}
-              >
-                Home
-              </Link>
-              <Link
-                className="nav-link text-white text-decoration-none px-2 py-1 rounded navbar-hover-link"
-                to="/products"
-                style={{ fontSize: "0.9rem" }}
-              >
-                Products
-              </Link>
-              <Link
-                className="nav-link text-white text-decoration-none px-2 py-1 rounded navbar-hover-link"
-                to="/order"
-                style={{ fontSize: "0.9rem" }}
-              >
-                Orders
-              </Link>
-              <Link
-                className="nav-link text-white text-decoration-none px-2 py-1 rounded navbar-hover-link"
-                to="/address"
-                style={{ fontSize: "0.9rem" }}
-              >
-                Address
-              </Link>
-            </div>
 
             {/* Cart Icon */}
             <Link

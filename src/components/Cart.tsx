@@ -107,7 +107,7 @@ export const Cart: React.FC = () => {
           className="btn btn-primary flex-grow-1"
           onClick={() => navigate("/order")}
         >
-          Place the Order
+          Place Order
         </button>
       </div>
     </div>
