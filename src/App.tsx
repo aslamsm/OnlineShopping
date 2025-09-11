@@ -45,30 +45,18 @@ const NavbarWithCart = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchExpanded, setIsSearchExpanded] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const toggleSearch = () => {
-    setIsSearchExpanded(!isSearchExpanded);
-  };
-
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleSearch = () => setIsSearchExpanded(!isSearchExpanded);
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <>
-      {/* Inject custom styles */}
       <style dangerouslySetInnerHTML={{ __html: navbarStyles }} />
-
-      {/* Font Awesome */}
       <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       />
 
-      {/* Mobile overlay */}
       {isMenuOpen && (
         <div className="mobile-menu-overlay d-lg-none" onClick={closeMenu} />
       )}
@@ -86,10 +74,9 @@ const NavbarWithCart = () => {
         }}
       >
         <div className="container-fluid">
-          {/* Logo Section */}
           <Link
             className="navbar-brand text-white d-flex align-items-center flex-shrink-0"
-            to="/home"
+            to="/"
             style={{ minWidth: "120px" }}
           >
             <img
@@ -104,49 +91,35 @@ const NavbarWithCart = () => {
             />
             <span
               className="fw-bold d-none d-sm-inline"
-              style={{
-                color: "#f8e40fff",
-                fontSize: "0.9rem",
-              }}
+              style={{ color: "#f8e40fff", fontSize: "0.9rem" }}
             >
               SHANU-Online
             </span>
           </Link>
 
-          {/* Desktop Navigation Links - Left aligned after logo */}
           <div className="d-none d-md-flex align-items-center gap-4 ms-1">
-            <Link
-              className="nav-link text-white text-decoration-none px-1 py-0 rounded navbar-hover-link"
-              to="/home"
-              style={{ fontSize: "0.9rem" }}
-            >
+            <Link className="nav-link text-white navbar-hover-link" to="/">
               Home
             </Link>
             <Link
-              className="nav-link text-white text-decoration-none px-1 py-0 rounded navbar-hover-link"
+              className="nav-link text-white navbar-hover-link"
               to="/products"
-              style={{ fontSize: "0.9rem" }}
             >
               Products
             </Link>
-            <Link
-              className="nav-link text-white text-decoration-none px-1 py-0 rounded navbar-hover-link"
-              to="/order"
-              style={{ fontSize: "0.9rem" }}
-            >
+            <Link className="nav-link text-white navbar-hover-link" to="/order">
               Orders
             </Link>
             <Link
-              className="nav-link text-white text-decoration-none px-1 py-0 rounded navbar-hover-link"
+              className="nav-link text-white navbar-hover-link"
               to="/address"
-              style={{ fontSize: "0.9rem" }}
             >
               Address
             </Link>
           </div>
 
-          {/* Desktop Search Bar - Increased width */}
-          <div className="d-none d-lg-flex  align-items-center">
+          {/* Desktop Search */}
+          <div className="d-none d-lg-flex align-items-center">
             <form
               className="d-flex"
               role="search"
@@ -182,9 +155,8 @@ const NavbarWithCart = () => {
             </form>
           </div>
 
-          {/* Right Side Items */}
+          {/* Right Side */}
           <div className="d-flex align-items-center gap-2 gap-md-3">
-            {/* Mobile Search Icon */}
             <button
               className="btn btn-link text-white p-1 d-lg-none border-0"
               onClick={toggleSearch}
@@ -194,7 +166,6 @@ const NavbarWithCart = () => {
               <i className="fas fa-search"></i>
             </button>
 
-            {/* Cart Icon */}
             <Link
               to="/cart"
               className="text-white text-decoration-none px-1"
@@ -204,10 +175,7 @@ const NavbarWithCart = () => {
                 <img
                   src={shopcart}
                   alt="Cart"
-                  style={{
-                    width: "24px",
-                    height: "20px",
-                  }}
+                  style={{ width: "24px", height: "20px" }}
                 />
                 {getTotalQuantity() > 0 && (
                   <span
@@ -235,7 +203,6 @@ const NavbarWithCart = () => {
               </div>
             </Link>
 
-            {/* Mobile Menu Toggle */}
             <button
               className="btn btn-link text-white p-1 d-lg-none border-0"
               onClick={toggleMenu}
@@ -248,7 +215,7 @@ const NavbarWithCart = () => {
         </div>
       </nav>
 
-      {/* Mobile Search Bar */}
+      {/* Mobile Search */}
       {isSearchExpanded && (
         <div
           className="d-lg-none position-sticky top-0"
@@ -265,20 +232,13 @@ const NavbarWithCart = () => {
                 type="search"
                 placeholder="Search products..."
                 className="form-control"
-                style={{
-                  fontSize: "0.9rem",
-                  border: "none",
-                }}
+                style={{ fontSize: "0.9rem", border: "none" }}
                 autoFocus
               />
               <button
                 className="btn btn-warning search-btn"
                 type="submit"
-                style={{
-                  fontSize: "0.9rem",
-                  color: "#232F3E",
-                  border: "none",
-                }}
+                style={{ fontSize: "0.9rem", color: "#232F3E", border: "none" }}
               >
                 <i className="fas fa-search"></i>
               </button>
@@ -300,35 +260,27 @@ const NavbarWithCart = () => {
         >
           <div className="container-fluid py-2">
             <div className="d-flex flex-column gap-2">
-              <Link
-                className="nav-link text-white text-decoration-none py-2 px-3 rounded navbar-hover-link"
-                to="/home"
-                onClick={closeMenu}
-                style={{ fontSize: "0.95rem" }}
-              >
+              <Link className="nav-link text-white" to="/" onClick={closeMenu}>
                 <i className="fas fa-home me-2"></i>Home
               </Link>
               <Link
-                className="nav-link text-white text-decoration-none py-2 px-3 rounded navbar-hover-link"
+                className="nav-link text-white"
                 to="/products"
                 onClick={closeMenu}
-                style={{ fontSize: "0.95rem" }}
               >
                 <i className="fas fa-box me-2"></i>Products
               </Link>
               <Link
-                className="nav-link text-white text-decoration-none py-2 px-3 rounded navbar-hover-link"
+                className="nav-link text-white"
                 to="/order"
                 onClick={closeMenu}
-                style={{ fontSize: "0.95rem" }}
               >
                 <i className="fas fa-receipt me-2"></i>Orders
               </Link>
               <Link
-                className="nav-link text-white text-decoration-none py-2 px-3 rounded navbar-hover-link"
+                className="nav-link text-white"
                 to="/address"
                 onClick={closeMenu}
-                style={{ fontSize: "0.95rem" }}
               >
                 <i className="fas fa-map-marker-alt me-2"></i>Address
               </Link>
@@ -341,16 +293,32 @@ const NavbarWithCart = () => {
 };
 
 const AppContent = () => {
-  const location = useLocation();
-
   return (
     <>
       <NavbarWithCart />
-      {/* Show Slider only on home page */}
-      {(location.pathname === "/" || location.pathname === "/home") && (
-        <Slider />
-      )}
+
       <Routes>
+        {/* Home page with slider and products */}
+        <Route
+          path="/"
+          element={
+            <>
+              <Slider />
+              <ProductList />
+            </>
+          }
+        />
+        {/* Optional /home route with same layout */}
+        <Route
+          path="/home"
+          element={
+            <>
+              <Slider />
+              <ProductList />
+            </>
+          }
+        />
+        {/* Other pages */}
         <Route path="/products" element={<ProductList />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/address" element={<AddressForm />} />
