@@ -9,13 +9,7 @@ import logocart from "/logocart.jpg";
 import shopcart from "/shopcart.jpg";
 import { useState } from "react";
 
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link,
-  useLocation,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Slider from "./components/Slider";
 
 // Custom CSS styles
