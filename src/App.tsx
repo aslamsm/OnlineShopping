@@ -77,10 +77,10 @@ const NavbarWithCart = () => {
               src={logocart}
               alt="Logo"
               style={{
-                width: "40px",
-                height: "24px",
-                marginRight: "8px",
-                objectFit: "contain",
+                width: "75px",
+                height: "50px",
+                marginRight: "5px",
+                objectFit: "fill",
               }}
             />
             <span
